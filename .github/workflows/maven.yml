@@ -2,13 +2,12 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main", "master" ]   # يشتغل على main أو master
+    branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +22,12 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn -B clean install --file testAutomation/pom.xml   # تنظيف + بناء المشروع
+        run: mvn -B clean install --file testAutomation/pom.xml
 
       - name: Run Tests
-        run: mvn test --file testAutomation/pom.xml  # تشغيل التستات
+        run: mvn test --file testAutomation/pom.xml
 
-      # Optional: Dependency graph for Dependabot
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+        with:
+          directory: testAutomation  # directory containing pom.xml
