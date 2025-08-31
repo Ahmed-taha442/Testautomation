@@ -26,7 +26,7 @@ jobs:
         run: mvn -B clean install --file testAutomation/pom.xml   # تنظيف + بناء المشروع
 
       - name: Run Tests
-        run: mvn test --file pom.xml   # تشغيل التستات
+        run: mvn test --file testAutomation/pom.xml  # تشغيل التستات
 
       # Optional: Dependency graph for Dependabot
       - name: Update dependency graph
