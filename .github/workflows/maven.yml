@@ -23,7 +23,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn -B clean install --file NopCommerced/testAutomation/pom   # تنظيف + بناء المشروع
+        run: mvn -B clean install --file testAutomation/pom.xml   # تنظيف + بناء المشروع
 
       - name: Run Tests
         run: mvn test --file pom.xml   # تشغيل التستات
